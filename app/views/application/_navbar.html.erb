@@ -19,7 +19,7 @@
         <li><a href="#">FAQ</a></li> -->
         <li><%= link_to "How It Works", how_it_works_path %></li>
         <% if user_signed_in?  %>
-        <li><%= link_to "My Account", edit_user_registration_path %></li>
+        <li><%= link_to "My Account", account_path %></li>
         <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
         <% else %>
         <li><%= link_to "Login", new_user_session_path %></li>
