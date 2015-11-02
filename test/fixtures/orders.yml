@@ -2,12 +2,12 @@
 
 one:
   delivery_date: MyString
-  address_id: 1
+  address_id: 
   payment_success: false
   user_id: 
 
 two:
   delivery_date: MyString
-  address_id: 1
+  address_id: 
   payment_success: false
   user_id: 
