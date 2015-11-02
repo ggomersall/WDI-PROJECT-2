@@ -9,20 +9,13 @@ $nav-pills-active-link-hover-bg: #6f5499;
 
 @import "bootstrap";
 
-.panel {
+.panel-default {
   max-width: 400px;
-  margin: 0 auto; 
 }
 
-// .edit-page {
-//   max-width: 600px;
-// }
-
-// .center {
-//   text-align: center;
-// }
-
-
+.edit-panel {
+  max-width: 650px; 
+}
 
 
 
