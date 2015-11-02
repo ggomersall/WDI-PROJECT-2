@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Company name</th>
       <th>Telephone</th>
       <th>Address line 1</th>
       <th>Address line 2</th>
@@ -13,7 +14,6 @@
       <th>Post code</th>
       <th>Country</th>
       <th>Delivery notes</th>
-      <th>Company name</th>
       <th>User</th>
       <th colspan="3"></th>
     </tr>
@@ -22,6 +22,7 @@
   <tbody>
     <% @addresses.each do |address| %>
       <tr>
+        <td><%= address.company_name %></td>
         <td><%= address.telephone %></td>
         <td><%= address.address_line_1 %></td>
         <td><%= address.address_line_2 %></td>
@@ -30,7 +31,6 @@
         <td><%= address.post_code %></td>
         <td><%= address.country %></td>
         <td><%= address.delivery_notes %></td>
-        <td><%= address.company_name %></td>
         <td><%= address.user %></td>
         <td><%= link_to 'Show', address %></td>
         <td><%= link_to 'Edit', edit_address_path(address) %></td>

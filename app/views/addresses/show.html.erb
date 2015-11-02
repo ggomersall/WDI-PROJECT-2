@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Company name:</strong>
+  <%= @address.company_name %>
+</p>
+
+<p>
   <strong>Telephone:</strong>
   <%= @address.telephone %>
 </p>
@@ -38,11 +43,6 @@
 <p>
   <strong>Delivery notes:</strong>
   <%= @address.delivery_notes %>
-</p>
-
-<p>
-  <strong>Company name:</strong>
-  <%= @address.company_name %>
 </p>
 
 <p>
