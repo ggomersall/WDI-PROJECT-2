@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
+  resources :addresses
   devise_for :users
 
-  root "views#home"
+  root "pages#home"
 
 
   # The priority is based upon order of creation: first created -> highest priority.
