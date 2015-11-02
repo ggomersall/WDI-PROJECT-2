@@ -1,0 +1,5 @@
+a user has many orders
+an order belongs to a user
+an order has_one address
+an address belongs_to an order
+a user has many addresses through orders
