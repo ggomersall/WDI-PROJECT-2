@@ -9,6 +9,6 @@ class PagesController < ApplicationController
   end
 
   def account
-    
+
   end
 end

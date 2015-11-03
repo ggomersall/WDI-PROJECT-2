@@ -27,6 +27,7 @@ class AddressesController < ApplicationController
   def create
     # @address = Address.new(address_params)
     @address = current_user.addresses.new(address_params)
+    current_user.save
 
     respond_to do |format|
       if @address.save

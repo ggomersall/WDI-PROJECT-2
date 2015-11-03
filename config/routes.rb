@@ -1,19 +1,6 @@
 Rails.application.routes.draw do
-  get 'orders/index'
 
-  get 'orders/show'
-
-  get 'orders/create'
-
-  get 'orders/new'
-
-  get 'orders/destroy'
-
-  get 'orders/edit'
-
-  get 'orders/update'
-
-  resources :addresses
+  resources :addresses, :orders
   devise_for :users, controllers: {registrations: "registrations"}
 
   root "pages#home"

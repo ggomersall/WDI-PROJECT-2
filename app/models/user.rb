@@ -6,4 +6,8 @@ class User < ActiveRecord::Base
 
   has_many :orders
   has_many :addresses
+
+  def fullname
+    [first_name, last_name].join(" ")
+  end
 end

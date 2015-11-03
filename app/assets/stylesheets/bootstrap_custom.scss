@@ -1,17 +1,45 @@
 // @import "bootstrap-sprockets";
 
 $navbar-default-bg:  white;
+$navbar-height: 80px;
+$navbar-default-link-color: #6f5499;
+
 $btn-default-bg:  #6f5499; 
 $btn-default-color: white;
 
 $nav-pills-active-link-hover-bg: #6f5499;
 
 $panel-default-heading-bg:  #6f5499;
-
 $panel-footer-bg: #6f5499;
 
 
 @import "bootstrap";
+
+body {
+  background-color: #f2f2f2;
+  margin-top: 80px;
+}
+
+.navbar-brand {
+  margin-top: -10px;
+}
+
+.jumbotron {
+  background-image: url("snow-beers.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: none;
+  min-height: 630px;
+  margin-top: -25px;
+}
+
+.jumbotron > h1 {
+  text-align: center;
+}
+
+.jumbotron > p {
+  text-align: center;
+}
 
 .panel-heading > h2 {
   color: white;
@@ -19,6 +47,19 @@ $panel-footer-bg: #6f5499;
 
 .panel-footer > a {
   color: white;
+}
+
+// .address-default {
+//   border: 2px black solid;
+// }
+
+.panel-default > .address-title {
+  color: white;
+}
+
+
+.address {
+  // margin-bottom: 25px;
 }
 
 .panel {
