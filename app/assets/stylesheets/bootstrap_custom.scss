@@ -6,8 +6,24 @@ $btn-default-color: white;
 
 $nav-pills-active-link-hover-bg: #6f5499;
 
+$panel-default-heading-bg:  #6f5499;
+
+$panel-footer-bg: #6f5499;
+
 
 @import "bootstrap";
+
+.panel-heading > h2 {
+  color: white;
+}
+
+.panel-footer > a {
+  color: white;
+}
+
+.panel {
+  // text-align: center;
+}
 
 .panel-default {
   max-width: 400px;
