@@ -20,14 +20,16 @@
         </div>
         <div id="order-history" class="tab-pane fade">
           <h3>Order History</h3>
-          <p>THIS DISPLAYS ALL YOUR ORDER HISTORY!!!!!</p>
+          <!-- <p>THIS DISPLAYS ALL YOUR ORDER HISTORY!!!!!</p> -->
           <% current_user.orders.each do |order| %>
+            <%= current_user.fullname %>
+            <%= order.delivery_date %>
+            <%= order.address.company_name %>
+            <%#= order.quantity %>
           <% end %>
         </div>
         <div id="address-book" class="tab-pane fade">
           <h3>My Address Book</h3>
-          <!-- <p>THIS IS ALL YOUR ADDRESSES IN YOUR ADDRESS BOOK!!!</p> -->
-          
           <% current_user.addresses.each do |address| %>
           <div class="panel-default address-default">  
             <div class="panel-heading address-title">
@@ -46,7 +48,7 @@
           </div>
           <br>
           <% end %>
-          <p><%= link_to "Add New Address", new_address_path, class: "btn btn-default btn-lg" %></p>
+          <p><%= link_to "Add New Address", new_address_path, class: "btn btn-default btn-md" %></p>
         </div>
         </div>
       </div>
