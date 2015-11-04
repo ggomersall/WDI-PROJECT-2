@@ -4,6 +4,28 @@ class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
+  def stripe_payment
+    # Amount in cents
+    @amount = order.total.to_i
+
+    customer = Stripe::Customer.create(
+      :email => 'example@stripe.com',
+      :card  => params[:stripeToken]
+    )
+
+    charge = Stripe::Charge.create(
+      :customer    => customer.id,
+      :amount      => @amount,
+      :description => 'Beer Order From DeskBrews',
+      :currency    => 'gbp'
+    )
+
+    rescue Stripe::CardError => e
+      flash[:error] = e.message
+      redirect_to charges_path
+    
+  end
+
   def get_delivery_dates
     # this below is the functions and methods for creating the date to be friday
     # in order to use the method Date.today, you need to require "date" like above

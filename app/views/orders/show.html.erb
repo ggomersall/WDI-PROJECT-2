@@ -13,7 +13,7 @@
       </p>
 
       <p>
-        <strong>User:</strong>
+        <strong>Name:</strong>
         <%= @order.user.fullname %>
       </p>
 
@@ -31,7 +31,7 @@
         <!--  <strong>Total for your order is:</strong><br> -->
         <!-- <p><strong>£ <%#= @order.price %></strong></p> -->
         <!-- <p><strong>£ <%#= @order.vat %></strong></p> -->
-        <h3>Total Payable: £ <%= @order.total %></h3><p> inclusive of VAT</p>
+        <h3>Total Payable: <%= number_to_currency(@order.total, unit: "£") %></h3><p> inclusive of VAT</p>
       </p>
     </div>
 

@@ -42,7 +42,11 @@ body {
 }
 
 .beers {
-  background-image: image-url("beers.JPG");
+  background: linear-gradient(
+      rgba(167, 167, 167, 0.8), 
+      rgba(167, 167, 167, 0.35)
+    ),
+    image-url("beers.JPG");
   background-position: center;
   background-size: cover;
   background-repeat: none;
@@ -51,9 +55,10 @@ body {
 }
 
 .beers > h1 {
-  margin-top: 60px;
-  color: rgb(183, 157, 61);
+  margin-top: 40px;
+  color: rgb(243, 227, 61);
   font-size: 40px;
+  margin-bottom: 40px;
 }
 
 .panel-heading > h2 {
