@@ -20,15 +20,20 @@
         </div>
         <div id="order-history" class="tab-pane fade">
           <h3>Order History</h3>
-          <!-- <p>THIS DISPLAYS ALL YOUR ORDER HISTORY!!!!!</p> -->
+          <% if current_user.addresses.present? %>
           <% current_user.orders.each do |order| %>
             <%= current_user.fullname %>
             <%= order.delivery_date %>
             <%= order.address.company_name %>
-            <%#= order.quantity %>
+
+          <% end %>
+            <p><%= link_to "Order More Beers", new_order_path, class: "btn btn-default btn-md" %></p>
+          <% else %>
+            <h5>Sorry you have no addresses saved to your account, please add an address before your place an order</h5>
+            <p><%= link_to "Add New Address", new_address_path, class: "btn btn-default btn-md" %></p>
           <% end %>
           <br>
-          <p><%= link_to "Order More Beers", new_order_path, class: "btn btn-default btn-md" %></p>
+          
         </div>
         <div id="address-book" class="tab-pane fade">
           <h3>My Address Book</h3>
