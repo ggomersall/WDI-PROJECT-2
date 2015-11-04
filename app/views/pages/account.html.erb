@@ -27,6 +27,8 @@
             <%= order.address.company_name %>
             <%#= order.quantity %>
           <% end %>
+          <br>
+          <p><%= link_to "Order More Beers", new_order_path, class: "btn btn-default btn-md" %></p>
         </div>
         <div id="address-book" class="tab-pane fade">
           <h3>My Address Book</h3>
