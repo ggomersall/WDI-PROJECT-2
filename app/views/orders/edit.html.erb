@@ -1,6 +1,14 @@
-<h1>Editing Order</h1>
+<div class="col-md-6 col-md-offset-4">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h1>Edit You Order</h1>
+    </div>
 
-<%= render 'form' %>
+    <%= render 'form' %>
 
-<%= link_to 'Show', @order %> |
-<%= link_to 'Back', orders_path %>
+    <div class="panel-footer">
+      <%= link_to 'Show', @order %> |
+      <%= link_to 'Back', orders_path %>
+    </div>
+  </div>
+</div>

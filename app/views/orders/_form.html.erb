@@ -1,4 +1,3 @@
-
 <%= form_for(@order) do |f| %>
   <% if @order.errors.any? %>
     <div id="error_explanation">
@@ -11,29 +10,30 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="form-group">
-    <%= f.label :delivery_date %><br>
-    <%= f.text_field :delivery_date, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :quantity %><br>
-    <%= f.select :quantity, options_for_select([[12], [24], [36], [48], [60]]), class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :address_id %><br>
-    <%= f.select :address_id, options_for_select(current_user.addresses.each), class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :payment_success %><br>
-    <%= f.check_box :payment_success, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id, class: "form-control" %>
-  </div>
-  <div class="actions form-group">
-    <%= f.submit class: "btn btn-default" %>
-  </div>
+<!-- <div class="col-md-6 col-md-offset-4"> -->
+  <!-- <div class="panel panel-default"> -->
+    <!-- <div class="panel-heading">
+      <h1>New Order</h1>
+    </div> -->
+    <div class="panel-body">
+      <div class="form-group">
+        <%= f.label :delivery_date %><br>
+        <%= f.select :delivery_date, options_for_select(@deliveryDates), class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :quantity %><br>
+        <%= f.select :quantity, options_for_select([12, 24, 36, 48, 60]), class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :address_id %><br>
+        <%= f.collection_select :address_id, current_user.addresses, :id, :company_name, class: "form-control" %>
+      </div>
+      <div class="actions form-group">
+        <%= f.submit class: "btn btn-default" %>
+      </div>
+    </div>
+    
+<!-- </div> -->
 <% end %>
+    
 

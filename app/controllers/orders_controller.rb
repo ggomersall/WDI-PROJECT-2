@@ -1,3 +1,5 @@
+require "date"
+
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
@@ -16,6 +18,30 @@ class OrdersController < ApplicationController
   # GET /orders/new
   def new
     @order = Order.new
+
+    # this below is the functions and methods for creating the date to be friday
+    # in order to use the method Date.today, you need to require "date" like above
+    today = Date.today
+    # this function is making daysUntilNextFrdiday 5 minus today
+    daysUntilNextFriday = 5 - today.cwday;
+
+    # if the days until friday are less than 3 days, it will display the next fridays date
+    if daysUntilNextFriday < 3
+      daysUntilNextFriday = daysUntilNextFriday + 7
+    end
+
+    # 
+    friday = today + daysUntilNextFriday
+    #  this makes an array for the delivery dates
+    @deliveryDates = [];
+    # this loops through the dates alowing you to see 5 different dates
+    (0..4).each do |i|
+      thisFriday = friday + (i*7)
+      # this line below is necessary for making the date look pretty
+      # for more info see this:
+      # http://ruby-doc.org/stdlib-2.1.1/libdoc/date/rdoc/Date.html#method-i-strftime
+      @deliveryDates << [ thisFriday.strftime("%A %-d %b"), thisFriday ]
+    end
   end
 
   # GET /orders/1/edit

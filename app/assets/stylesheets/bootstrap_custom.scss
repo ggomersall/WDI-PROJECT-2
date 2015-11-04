@@ -41,6 +41,21 @@ body {
   text-align: center;
 }
 
+.beers {
+  background-image: url("beers.JPG");
+  background-position: center;
+  background-size: cover;
+  background-repeat: none;
+  min-height: 350px;
+  margin-top: 40px;
+}
+
+.beers > h1 {
+  margin-top: 60px;
+  color: rgb(183, 157, 61);
+  font-size: 40px;
+}
+
 .panel-heading > h2 {
   color: white;
 }
