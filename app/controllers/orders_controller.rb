@@ -4,21 +4,28 @@ class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
-  def stripe_payment
-    # Amount in cents
-    @amount = order.total.to_i
+  def payment
+    # Amount in pence
+    order = Order.find(params[:order_id])
+
+    ## if !order
+      ## redirect_to...
+
+    amount = (order.total * 100).to_i
 
     customer = Stripe::Customer.create(
-      :email => 'example@stripe.com',
+      :email => current_user.email,
       :card  => params[:stripeToken]
     )
 
     charge = Stripe::Charge.create(
       :customer    => customer.id,
-      :amount      => @amount,
+      :amount      => amount,
       :description => 'Beer Order From DeskBrews',
       :currency    => 'gbp'
     )
+
+    redirect_to account_path
 
     rescue Stripe::CardError => e
       flash[:error] = e.message

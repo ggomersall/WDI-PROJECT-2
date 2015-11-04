@@ -28,11 +28,18 @@
       </p>
 
       <p>
-        <!--  <strong>Total for your order is:</strong><br> -->
-        <!-- <p><strong>£ <%#= @order.price %></strong></p> -->
-        <!-- <p><strong>£ <%#= @order.vat %></strong></p> -->
         <h3>Total Payable: <%= number_to_currency(@order.total, unit: "£") %></h3><p> inclusive of VAT</p>
       </p>
+
+      <%= form_tag payment_path, method: :post do %>
+        <%= hidden_field_tag 'order_id', @order.id %>
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                  data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                  data-description="Your Beer Order"
+                  data-currency="gbp"
+                  data-amount="<%= (@order.total * 100).to_i %>"
+                  data-locale="auto"></script>
+      <% end %>
     </div>
 
     <div class="panel-footer">
