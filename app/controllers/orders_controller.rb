@@ -4,21 +4,7 @@ class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
-  # GET /orders
-  # GET /orders.json
-  def index
-    @orders = Order.all
-  end
-
-  # GET /orders/1
-  # GET /orders/1.json
-  def show
-  end
-
-  # GET /orders/new
-  def new
-    @order = Order.new
-
+  def get_delivery_dates
     # this below is the functions and methods for creating the date to be friday
     # in order to use the method Date.today, you need to require "date" like above
     today = Date.today
@@ -33,19 +19,38 @@ class OrdersController < ApplicationController
     # 
     friday = today + daysUntilNextFriday
     #  this makes an array for the delivery dates
-    @deliveryDates = [];
+    deliveryDates = [];
     # this loops through the dates alowing you to see 5 different dates
     (0..4).each do |i|
       thisFriday = friday + (i*7)
       # this line below is necessary for making the date look pretty
       # for more info see this:
       # http://ruby-doc.org/stdlib-2.1.1/libdoc/date/rdoc/Date.html#method-i-strftime
-      @deliveryDates << [ thisFriday.strftime("%A %-d %b"), thisFriday ]
+      deliveryDates << [ thisFriday.strftime("%A %-d %b"), thisFriday ]
     end
+    return deliveryDates
+  end
+
+  # GET /orders
+  # GET /orders.json
+  def index
+    @orders = Order.all
+  end
+
+  # GET /orders/1
+  # GET /orders/1.json
+  def show
+  end
+
+  # GET /orders/new
+  def new
+    @order = Order.new
+    @deliveryDates = get_delivery_dates
   end
 
   # GET /orders/1/edit
   def edit
+    @deliveryDates = get_delivery_dates
   end
 
   # POST /orders
@@ -97,6 +102,6 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:delivery_date, :address_id, :payment_success, :user_id)
+      params.require(:order).permit(:delivery_date, :address_id, :payment_success, :user_id, :quantity)
     end
 end

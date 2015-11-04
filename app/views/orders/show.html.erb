@@ -1,24 +1,43 @@
+<br>
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Delivery date:</strong>
-  <%= @order.delivery_date %>
-</p>
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h2>Order Summary</h2>
+    </div>
+    <div class="panel-body">
+      <p>
+        <strong>Delivery date:</strong>
+        <%= @order.delivery_date %>
+      </p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @order.address %>
-</p>
+      <p>
+        <strong>User:</strong>
+        <%= @order.user.fullname %>
+      </p>
 
-<p>
-  <strong>Payment success:</strong>
-  <%= @order.payment_success %>
-</p>
+      <p>
+        <strong>Address:</strong>
+        <%= @order.address.company_name %>
+      </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @order.user %>
-</p>
+      <p>
+        <strong>Amount of Beers:</strong>
+        <strong><%= @order.quantity %></strong>
+      </p>
 
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+      <p>
+        <!--  <strong>Total for your order is:</strong><br> -->
+        <!-- <p><strong>£ <%#= @order.price %></strong></p> -->
+        <!-- <p><strong>£ <%#= @order.vat %></strong></p> -->
+        <h3>Total Payable: £ <%= @order.total %></h3><p> inclusive of VAT</p>
+      </p>
+    </div>
+
+    <div class="panel-footer">
+      <%= link_to 'Edit', edit_order_path(@order) %> |
+      <%= link_to 'Back', orders_path %>
+    </div>
+  </div>
+</div>

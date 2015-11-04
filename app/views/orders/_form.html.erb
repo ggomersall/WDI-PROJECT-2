@@ -18,15 +18,15 @@
     <div class="panel-body">
       <div class="form-group">
         <%= f.label :delivery_date %><br>
-        <%= f.select :delivery_date, options_for_select(@deliveryDates), class: "form-control" %>
+        <%= f.select :delivery_date, options_for_select(@deliveryDates, @order.delivery_date), {}, class: "form-control" %>
       </div>
       <div class="form-group">
         <%= f.label :quantity %><br>
-        <%= f.select :quantity, options_for_select([12, 24, 36, 48, 60]), class: "form-control" %>
+        <%= f.select :quantity, options_for_select([12, 24, 36, 48, 60], @order.quantity), {}, class: "form-control" %>
       </div>
       <div class="form-group">
         <%= f.label :address_id %><br>
-        <%= f.collection_select :address_id, current_user.addresses, :id, :company_name, class: "form-control" %>
+        <%= f.collection_select :address_id, current_user.addresses, :id, :company_name, { selected: @order.address_id }, class: "form-control" %>
       </div>
       <div>
         <h4>Your order summary is: </h4>
