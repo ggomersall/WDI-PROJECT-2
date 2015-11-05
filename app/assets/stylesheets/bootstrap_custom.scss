@@ -18,6 +18,7 @@ $panel-footer-bg: #6f5499;
 body {
   background-color: #f2f2f2;
   margin-top: 80px;
+  color: #6f5499;
 }
 
 .navbar-brand {
@@ -112,24 +113,26 @@ body {
   color: #6f5499;
 }
 
-.about {
-  // height: 256px;
-  // position: relative;
-  // &:before {
-  //   content: " ";
-  //   display: inline-block;
-  //   vertical-align: middle;
-  //   width: 1px;
-  //   height: 100%;
-  // }
+#company > h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
 
-  // & > h3 {
-  //   background: red;
-  //   text-align: center;
-  //   color: #6f5499;
-  //   display: inline-block;
-  //   vertical-align: middle;
-  // }
+// .company {
+//   display: flex;
+//   justify-content: center;
+//   flex-direction:column;
+//   text-align: center;
+// }
+.companies {
+  margin-top: 50px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+}
+
+.about {
 
   display: flex;
   justify-content: center;
@@ -138,11 +141,23 @@ body {
 
   h3 {
     margin: 25px 0;
+    color: #6f5499;
   }
 
 }
 
 @media screen and (min-width: 992px) {
+
+  // .company {
+  //   height: 128px;
+  //   img {
+  //     margin: 0;
+  //   }
+  // }
+
+  .companies {
+    // margin-top: 20px
+  }
 
   .about {
     height: 256px;

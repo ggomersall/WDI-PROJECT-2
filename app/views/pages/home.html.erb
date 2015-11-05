@@ -4,54 +4,19 @@
     <p><%= link_to "Buy Beers Now!", new_order_path, class: "btn btn-default btn-lg" %></p>
 </div>
 
-<div class="container">
-  <h1 class="about-header">HOW IT WORKS</h1>
-  <div class="row" id="signup-icon">
-    <div class="col-md-offset-2 col-lg-offset-3 col-md-8 col-lg-6">
-      <div class="row">
-        <div class="col-md-6 about">
-          <h3>Sign Up To DeskBrews</h3>
-        </div>
-        <div class="col-md-6 img-icon">
-          <%= image_tag "adaptive_design.png" %>
-        </div>
-      </div>
-      <div class="row" id="date-icon">
-        <div class="col-md-6 about">
-          <h3>Choose Your Delivery Date</h3>
-        </div>
-        <div class="col-md-6 img-icon">
-          <%= image_tag "calendar.png" %>        
-        </div>
-      </div>
-      <div class="row" id="card-icon">
-        <div class="col-md-6 about">
-          <h3>Easy Credit Card Payment</h3>
-        </div>
-        <div class="col-md-6 img-icon">
-          <%= image_tag "credit_card.png" %>
-        </div>
-      </div>
-      <div class="row" id="transport-icon">
-        <div class="col-md-6 about">
-          <h3>Your Beers Will Be Delivered To You</h3>
-        </div>
-        <div class="col-md-6 img-icon">
-          <%= image_tag "transport.png" %>
-        </div>
-      </div>
-      <div class="row" id="beer-icon">
-        <div class="col-md-6 about">
-          <h3>Then Simply Enjoy!</h3>
-        </div>
-        <div class="col-md-6 img-icon">
-          <%= image_tag "beer_icon.png" %>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<%= render 'about' %>
+
 <div class="jumbotron beers">
     <h1>Ultimate Craft Beer Delivery Service</h1>
     <p><%= link_to "Order Beers Now", new_order_path, class: "btn btn-default btn-lg" %></p>
+</div>
+
+<div class="container" id="company">
+  <h2>Companies That Use DeskBrews</h2>
+  <div class="row companies">
+    <div class="col-md-4"><%= image_tag "one2date_logo.png" %></div>
+    <div class="col-md-4"><%= image_tag "ga_logo.png" %></div>
+    <div class="col-md-4"><%= image_tag "quintisocial_logo.png" %></div>
+    
+  </div>
 </div>

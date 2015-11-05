@@ -14,9 +14,14 @@
       <div class="tab-content">
         <div id="overview" class="tab-pane fade in active">
           <h3>Hello <%= current_user.fullname %></h3>
-          <p>THIS IS THE OVER VIEW OF YOUR ACCOUNT!!!! HDFJDKHFKDJHFKJDHKFHKDHJKDHFKJHDKJFHKJDHFKJDHFJDFLKDJFLKDJLFJL</p>
-          <%= current_user.fullname %>
-
+          <% if current_user.orders.present? %>
+            <h4>Your last delivery was on: <%= current_user.orders.last.delivery_date %></h4>
+            <%= current_user.orders.last.address.company_name %>
+            <%= current_user.orders.last.address.address_line_1 %>
+              
+          <% else %>
+            <%= "You haven't ordered yet" %>
+          <% end %>
         </div>
         <div id="order-history" class="tab-pane fade">
           <h3>Order History</h3>
