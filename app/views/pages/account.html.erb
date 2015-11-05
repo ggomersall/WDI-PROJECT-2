@@ -15,18 +15,29 @@
         <div id="overview" class="tab-pane fade in active">
           <h3>Hello <%= current_user.fullname %></h3>
           <% if current_user.orders.present? %>
-            <h4>Your last delivery was on: <%= current_user.orders.last.delivery_date %></h4>
-            <%= current_user.orders.last.address.company_name %>
-            <%= current_user.orders.last.address.address_line_1 %>
-              
+          <div class="panel-default"> 
+            <div class="panel-heading address-title">
+              <h4>Your delivery is scheduled for: <%= current_user.orders.last.delivery_date %></h4>
+            </div>
+            <div class="panel-body">
+              <%= current_user.orders.last.address.company_name %>,
+              <%= current_user.orders.last.address.address_line_1 %>,
+              <%= current_user.orders.last.address.post_code %>
+            </div>
+            <div class="panel-footer"></div>
+            <br>
+            <p><%= link_to "Order Again", new_order_path, class: "btn btn-default btn-md" %></p>
           <% else %>
             <%= "You haven't ordered yet" %>
+            <br>
+            <p><%= link_to "Order Now", new_order_path, class: "btn btn-default btn-md" %></p>
           <% end %>
+        </div>
         </div>
         <div id="order-history" class="tab-pane fade">
           <h3>Order History</h3>
           <% if current_user.addresses.present? %>
-          <% current_user.orders.each do |order| %>
+          <% current_user.orders.reverse.each do |order| %>
           <div class="panel-default address-default">  
             <div class="panel-heading address-title">
               <h5><%= order.address.company_name %></h5>
