@@ -13,7 +13,7 @@
     <div class="col-md-8">
       <div class="tab-content">
         <div id="overview" class="tab-pane fade in active">
-          <h3>Welcome back <%= current_user.fullname %></h3>
+          <h3>Hello <%= current_user.fullname %></h3>
           <p>THIS IS THE OVER VIEW OF YOUR ACCOUNT!!!! HDFJDKHFKDJHFKJDHKFHKDHJKDHFKJHDKJFHKJDHFKJDHFJDFLKDJFLKDJLFJL</p>
           <%= current_user.fullname %>
 
@@ -22,14 +22,26 @@
           <h3>Order History</h3>
           <% if current_user.addresses.present? %>
           <% current_user.orders.each do |order| %>
-            <%= current_user.fullname %>
-            <%= order.delivery_date %>
-            <%= order.address.company_name %>
+          <div class="panel-default address-default">  
+            <div class="panel-heading address-title">
+              <h5><%= order.address.company_name %></h5>
+            </div>
+            <div class="panel-body address-body">
+              <%= order.delivery_date %>,
+              <%= order.address.address_line_1 %>,
+              <%= order.address.post_code %>
+            </div>
+
+            <div class="panel-footer address">
+            <div></div>
+            </div>
+          </div>
+          <br>
 
           <% end %>
-            <p><%= link_to "Order More Beers", new_order_path, class: "btn btn-default btn-md" %></p>
+            <p><%= link_to "Order Beers", new_order_path, class: "btn btn-default btn-md" %></p>
           <% else %>
-            <h5>Sorry you have no addresses saved to your account, please add an address before your place an order</h5>
+            <h5>Sorry you have no addresses saved to your account, please add an address before you place an order</h5>
             <p><%= link_to "Add New Address", new_address_path, class: "btn btn-default btn-md" %></p>
           <% end %>
           <br>

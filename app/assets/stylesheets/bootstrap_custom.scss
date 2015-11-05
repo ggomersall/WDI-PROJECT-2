@@ -28,16 +28,22 @@ body {
   background-image: image-url("snow-beers.jpg");
   background-position: center;
   background-size: cover;
-  background-repeat: none;
+  background-repeat: no-repeat;
+  max-height: 900px;
   min-height: 630px;
   margin-top: -25px;
 }
 
 .jumbotron > img {
-  // text-align: center;
   margin: 0 auto;
-
+  margin-top: 60px;
 }
+
+.jumbotron > h1 {
+  text-align: center;
+}
+
+
 
 .jumbotron > p {
   text-align: center;
@@ -100,6 +106,54 @@ body {
   margin-top: 20px;
 }
 
+.about-header {
+  text-align: center;
+  margin-bottom: 45px;
+  color: #6f5499;
+}
+
+.about {
+  // height: 256px;
+  // position: relative;
+  // &:before {
+  //   content: " ";
+  //   display: inline-block;
+  //   vertical-align: middle;
+  //   width: 1px;
+  //   height: 100%;
+  // }
+
+  // & > h3 {
+  //   background: red;
+  //   text-align: center;
+  //   color: #6f5499;
+  //   display: inline-block;
+  //   vertical-align: middle;
+  // }
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+
+  h3 {
+    margin: 25px 0;
+  }
+
+}
+
+@media screen and (min-width: 992px) {
+  .about {
+    height: 256px;
+    h3 {
+      margin: 0;
+    }
+  }
+}
+
+.img-icon {
+  text-align: center;
+}
 
 
 
