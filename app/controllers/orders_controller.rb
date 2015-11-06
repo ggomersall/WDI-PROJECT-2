@@ -41,9 +41,9 @@ class OrdersController < ApplicationController
     daysUntilNextFriday = 5 - today.cwday;
 
     # if the days until friday are less than 3 days, it will display the next fridays date
-    if daysUntilNextFriday < 3
-      daysUntilNextFriday = daysUntilNextFriday + 7
-    end
+    # if daysUntilNextFriday < 3
+    #   daysUntilNextFriday = daysUntilNextFriday + 7
+    # end
 
     # 
     friday = today + daysUntilNextFriday
