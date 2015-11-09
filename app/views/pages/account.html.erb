@@ -37,31 +37,28 @@
         <div id="order-history" class="tab-pane fade">
           <h3>Order History</h3>
           <% if current_user.addresses.present? %>
-          <% current_user.orders.reverse.each do |order| %>
-          <div class="panel-default address-default">  
-            <div class="panel-heading address-title">
-              <h5><%= order.address.company_name %></h5>
+            <% current_user.orders.reverse.each do |order| %>
+            <div class="panel-default address-default">  
+              <div class="panel-heading address-title">
+                <h5><%= order.address.company_name %></h5>
+              </div>
+              <div class="panel-body address-body">
+                <%= order.delivery_date %>,
+                <%= order.address.address_line_1 %>,
+                <%= order.address.post_code %>
+              </div>
+                <div class="panel-footer address">
+              <div></div>
+              </div>
             </div>
-            <div class="panel-body address-body">
-              <%= order.delivery_date %>,
-              <%= order.address.address_line_1 %>,
-              <%= order.address.post_code %>
-            </div>
-
-            <div class="panel-footer address">
-            <div></div>
-            </div>
-          </div>
-          <br>
-
-          <% end %>
+            <br>
             <p><%= link_to "Order Beers", new_order_path, class: "btn btn-default btn-md" %></p>
           <% else %>
             <h5>Sorry you have no addresses saved to your account, please add an address before you place an order</h5>
             <p><%= link_to "Add New Address", new_address_path, class: "btn btn-default btn-md" %></p>
           <% end %>
           <br>
-          
+        <% end %> 
         </div>
         <div id="address-book" class="tab-pane fade">
           <h3>My Address Book</h3>
