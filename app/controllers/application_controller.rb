@@ -6,14 +6,6 @@ class ApplicationController < ActionController::Base
 
   protected
 
-  def after_sign_in_path_for(resource)
-    account_path
-  end
-
-  # def after_user_edit_path_for(resource)
-  #   account_path
-  # end
-
   # my custom fields are :username, :first_name, :last_name
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) do |u|

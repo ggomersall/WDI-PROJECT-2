@@ -53,7 +53,7 @@
             </div>
             <br>
             <p><%= link_to "Order Beers", new_order_path, class: "btn btn-default btn-md" %></p>
-          <% else %>
+          <%# else %>
             <h5>Sorry you have no addresses saved to your account, please add an address before you place an order</h5>
             <p><%= link_to "Add New Address", new_address_path, class: "btn btn-default btn-md" %></p>
           <% end %>

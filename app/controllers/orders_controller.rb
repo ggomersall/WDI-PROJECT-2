@@ -1,5 +1,3 @@
-require "date"
-
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
@@ -58,6 +56,13 @@ class OrdersController < ApplicationController
       deliveryDates << [ thisFriday.strftime("%A %-d %b"), thisFriday ]
     end
     return deliveryDates
+
+
+    # GErrys version of lines 49 <> 58
+    # (0..4).map do |i|
+    #   thisFriday = friday + (i*7)
+    #   [ thisFriday.strftime("%A %-d %b"), thisFriday ]
+    # end
   end
 
   # GET /orders
